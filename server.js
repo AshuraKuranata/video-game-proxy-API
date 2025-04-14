@@ -15,11 +15,12 @@ app.get('/api/games', async (req, res) => {
         const response = await fetch(url)
         const data = await response.json()
         res.json(data)
+        res.send(`${data}`)
     } catch (err) {
         res.status(500).json({ error: 'Failed to fetch from RAWG API' })
     }
 })
 
 app.listen(PORT, () => {
-    console.log(`Proxy server running on http://localhost:${PORT}`)
+    console.log(`Proxy server running on http://34.228.71.240:${PORT}/api/games`)
 })
