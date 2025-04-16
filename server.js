@@ -15,6 +15,20 @@ app.get('/api/games', async (req, res) => {
         const response = await fetch(url)
         const data = await response.json()
         res.json(data)
+        res.send(`${data}`)
+    } catch (err) {
+        res.status(500).json({ error: 'Failed to fetch from RAWG API' })
+    }
+})
+
+app.get('/api/games/:gameId', async (req, res) => {
+    const gameId = req.params.gameId
+    const url = `https://api.rawg.io/api/games/${gameId}?key=${API_KEY}`
+
+    try {
+        const response = await fetch(url)
+        const data = await response.json()
+        res.json(data)
     } catch (err) {
         res.status(500).json({ error: 'Failed to fetch from RAWG API' })
     }
