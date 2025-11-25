@@ -35,5 +35,5 @@ app.get('/api/games/:gameId', async (req, res) => {
 })
 
 app.listen(PORT, () => {
-    console.log(`Proxy server running on http://34.228.71.240:3060/api/games:${PORT}`)
+    console.log(`Proxy server running on http://44.212.152.76:3060/api/games:${PORT}`)
 })
